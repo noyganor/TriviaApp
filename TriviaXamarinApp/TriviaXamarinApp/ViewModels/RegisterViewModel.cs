@@ -104,7 +104,7 @@ namespace TriviaXamarinApp.ViewModels
             {
                 App app = (App)App.Current;
                 app.CurrentUser = uu;
-                app.MainPage = new HomePage();
+                await app.MainPage.Navigation.PopModalAsync();
             }
         }
     }

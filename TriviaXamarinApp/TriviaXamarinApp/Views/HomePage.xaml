@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TriviaXamarinApp.Views.HomePage">
+             x:Class="TriviaXamarinApp.Views.HomePage"
+             Title="Home Page">
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Secondary"
                      Text="login"
@@ -16,7 +17,6 @@
 
         <StackLayout BackgroundColor="BurlyWood">
 
-            <Label Text="TRIVIA GAME" HorizontalOptions="CenterAndExpand"/>
             <Label Text="{Binding User1}"/>
             <Button Text="Start Game" Command="{Binding StartGame}"/>
             <Button Text="Login" Command="{Binding LoginPageGame}"/>

@@ -4,18 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TriviaXamarinApp.Views.Login">
+             x:Class="TriviaXamarinApp.Views.Login"
+             Title="Login">
  
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Login" FontSize="Header"/>
             <Entry Placeholder="Email" Text="{Binding Email}"/>
             <Entry Placeholder="Password" Text="{Binding Password}"/>
             <Button Text="Login" Command="{Binding LoginC}"/>
             <Label Text="{Binding Message}" TextColor="Red"/>
             <Label Text="Don't have an account?" />
             <Button Text="press here to create one" Command="{Binding RegisterPageC}"/>
-
+            <Button Text="Cancel" Command="{Binding CancelButton}"/>
 
         </StackLayout>
     </ContentPage.Content>

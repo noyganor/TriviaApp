@@ -28,14 +28,14 @@ namespace TriviaXamarinApp.ViewModels
         public void MoveToLoginPage()
         {
             App app = (App)App.Current;
-            app.MainPage = new Login();
+            app.MainPage.Navigation.PushModalAsync(new Login());
         }
 
         public Command RegisterPageGame => new Command(MoveToRegisterPage);
         public void MoveToRegisterPage()
         {
             App app = (App)App.Current;
-            app.MainPage = new Register();
+            app.MainPage.Navigation.PushModalAsync(new Register());
         }
 
         private string user1;

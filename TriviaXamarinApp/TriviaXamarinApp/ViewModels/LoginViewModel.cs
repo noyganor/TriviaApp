@@ -69,6 +69,13 @@ namespace TriviaXamarinApp.ViewModels
             }
         }
 
+        public Command CancelButton => new Command(Cancel);
+        public async void Cancel()
+        {
+            App app = (App)App.Current;
+            await app.MainPage.Navigation.PopModalAsync();
+            await app.MainPage.Navigation.PopToRootAsync();
+        }
         public Command LoginC => new Command(LoginAsync);
         public async void LoginAsync()
         {
@@ -82,15 +89,16 @@ namespace TriviaXamarinApp.ViewModels
             {
                 App app = (App)App.Current;
                 app.CurrentUser = u;
-                app.MainPage = new HomePage();
+                await app.MainPage.Navigation.PopModalAsync();
             }
         }
 
         public Command RegisterPageC => new Command(RegisterUserPage);
         public async void RegisterUserPage()
         {
-            App app = (App)App.Current;           
-            app.MainPage = new Register();
+            App app = (App)App.Current;
+            await app.MainPage.Navigation.PopModalAsync();
+            await app.MainPage.Navigation.PushModalAsync(new Register());
         }
 
 

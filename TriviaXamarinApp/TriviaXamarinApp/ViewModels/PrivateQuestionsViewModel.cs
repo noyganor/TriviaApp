@@ -38,17 +38,7 @@ namespace TriviaXamarinApp.ViewModels
             }
         }
 
-        public Command AddButton => new Command(AddQuestion);
-        public async void AddQuestion()
-        {
-            TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-            AmericanQuestion q = new AmericanQuestion
-            {
-                QText = this.questionText,
-                //CorrectAnswer = this.
-            };
-            bool succeeded = await proxy.PostNewQuestion(q);
-        }
+        
 
     }
 
