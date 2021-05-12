@@ -14,9 +14,15 @@ namespace TriviaXamarinApp.Views
     {
         public HomePage()
         {
-            this.BindingContext = new TriviaGameViewModel(); 
+            this.BindingContext = new TriviaGameViewModel();
             InitializeComponent();
-            
+
+
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
     }
 }

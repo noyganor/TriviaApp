@@ -17,6 +17,27 @@ namespace TriviaXamarinApp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public TriviaGameViewModel()
+        {
+            OnAppearing();
+        }
+
+        public virtual void OnAppearing()
+        {
+            App app = (App)App.Current;
+            User u = app.CurrentUser;
+
+            if (u != null)
+            {
+                string name = u.NickName;
+                Title = $"Trivia Game, hello {name}";
+            }
+            else
+            {
+                Title = "Trivia Game";
+            }
+        }
         public Command StartGame => new Command(StartTriviaGame);
         public void StartTriviaGame()
         {
@@ -37,6 +58,25 @@ namespace TriviaXamarinApp.ViewModels
             App app = (App)App.Current;
             app.MainPage.Navigation.PushModalAsync(new Register());
         }
+
+        private string title;
+        public string Title
+        {
+            get
+            {
+                return this.title;
+            }
+            set
+            {
+                if (this.title != value)
+                {
+                    this.title = value;
+                    OnPropertyChanged("Title");
+                }
+            }
+        }
+
+       
 
         private string user1;
         public string User1

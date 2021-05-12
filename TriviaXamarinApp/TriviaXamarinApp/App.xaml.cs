@@ -5,6 +5,7 @@ using TriviaXamarinApp.Services;
 using TriviaXamarinApp.Models;
 using System.Threading.Tasks;
 using TriviaXamarinApp.Views;
+using Xamarin.Essentials;
 
 namespace TriviaXamarinApp
 {
@@ -13,6 +14,13 @@ namespace TriviaXamarinApp
         public User CurrentUser { get; set; }
         public App()
         {
+            Task<string> TaskEmail = SecureStorage.GetAsync("email");
+            Task<string> TaskPassword = SecureStorage.GetAsync("password");
+            TaskEmail.Wait();
+            TaskPassword.Wait();
+            string email = TaskEmail.Result;
+            string password = TaskPassword.Result;
+
             InitializeComponent();
 
             Page p = new HomePage();

@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TriviaXamarinApp.Views.Game"
              Title="Game">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"
+                     Text="login"
+                     Priority="0"
+                     Command="{Binding LoginPage}"/>
+        <ToolbarItem Order="Secondary"
+                     Text="my questions"
+                     Priority="1"
+                     Command="{Binding MyQuestionsPage}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding Question}" HorizontalOptions="CenterAndExpand" />

@@ -18,6 +18,20 @@ namespace TriviaXamarinApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public Command LoginPageGame => new Command(MoveToLoginPage);
+        public void MoveToLoginPage()
+        {
+            App app = (App)App.Current;
+            app.MainPage.Navigation.PushModalAsync(new Login());
+        }
+
+        public Command MyQuestionsPage => new Command(MoveToMyQuestionsPage);
+        public void MoveToMyQuestionsPage()
+        {
+            App app = (App)App.Current;
+            app.MainPage.Navigation.PushModalAsync(new MyQuestions());
+        }
+
         private string question;
         public string Question
         {
@@ -34,5 +48,7 @@ namespace TriviaXamarinApp.ViewModels
                 }
             }
         }
+
+
     }
 }
